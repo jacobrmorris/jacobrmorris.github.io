@@ -15,14 +15,15 @@
         }
         .container {
             width: 80%;
-            margin: auto; 
+            margin: 20px auto;
             padding: 20px;
             max-width: 800px;
             background: #f4f4f4;
+            border: 1px solid #ccc;
         }
         header {
             text-align: center;
-            padding: 40px 0 20px; /* Adjusted padding */
+            padding: 40px 0 20px;
         }
         header h1 {
             margin: 0;
@@ -37,29 +38,50 @@
             margin: 0 10px;
             color: #333;
             text-decoration: none;
-            font-size: 1.15em;
         }
         nav a:hover {
             text-decoration: underline;
         }
         .content {
             display: flex;
+            flex-wrap: wrap;
             align-items: flex-start;
             margin: 20px 0;
         }
         .profile-pic {
             margin-right: 20px;
-            max-width: 350px; /* Adjust the max-width as needed */
-            height: 262.5px; /* Adjust the height as needed */
+            max-width: 350px;
+            height: 262.2px;
             object-fit: cover;
+            clip-path: polygon(10% 0, 90% 0, 100% 100%, 0 100%);
         }
         .text-content {
             text-align: left;
+            flex: 1 1 100%; /* Adjust flex properties for responsiveness */
+            margin-top: 20px; /* Add margin between image and text on small screens */
         }
         footer {
             text-align: center;
             padding: 20px 0;
             background: #f4f4f4;
+            border-top: 1px solid #ccc;
+        }
+
+        /* Media query for smaller screens */
+        @media only screen and (max-width: 600px) {
+            .container {
+                width: 90%;
+                padding: 10px;
+            }
+            .profile-pic {
+                max-width: 100%;
+            }
+            header {
+                padding: 20px 0 10px;
+            }
+            .text-content {
+                font-size: 0.9em;
+            }
         }
     </style>
 </head>
@@ -68,18 +90,20 @@
         <h1>Jacob Morris</h1>
     </header>
     <nav>
-        <a href="index.html">Home</a>
-        <a href="research.html">Research</a>
-        <a href="cv.html">CV</a>
-        <a href="other.html">Other</a>
+        <input type="checkbox" id="menu-toggle">
+        <label for="menu-toggle">&#9776;</label>
+        <nav class="menu">
+            <a href="index.html">Home</a>
+            <a href="research.html">Research</a>
+            <a href="cv.html">CV</a>
+            <a href="other.html">Other</a>
+        </nav>
     </nav>
     <div class="container">
         <section id="home" class="content">
             <img src="Headshot.jpg" alt="Jacob Morris" class="profile-pic">
             <div class="text-content">
-                <p>I am an Economics PhD student at the University of California San Diego (UCSD).</p>
-                <p> </p>
-                <p>My research interests are in labor economics. </p>
+                <p>A brief personal description about your academic interests and background.</p>
                 <div class="contact-info">
                     <p>Email: jacobrmorris [at] ucsd [dot] edu</p>
                 </div>
