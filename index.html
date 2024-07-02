@@ -15,15 +15,16 @@
         }
         .container {
             width: 80%;
-            margin: 20px auto;
+            margin: auto; 
             padding: 20px;
             max-width: 800px;
             background: #f4f4f4;
-            border: 1px solid #ccc;
+            border: 1px solid #ccc; /* Added a border around the container */
+            border-radius: 10px; /* Optional: Rounded corners for the container */
         }
         header {
             text-align: center;
-            padding: 40px 0 20px;
+            padding: 40px 0 20px; /* Adjusted padding */
         }
         header h1 {
             margin: 0;
@@ -38,49 +39,43 @@
             margin: 0 10px;
             color: #333;
             text-decoration: none;
+            font-size: 1.15em;
         }
         nav a:hover {
             text-decoration: underline;
         }
         .content {
             display: flex;
-            flex-wrap: wrap;
-            align-items: flex-start;
+            flex-wrap: wrap; /* Added flex-wrap to allow content to wrap on smaller screens */
+            justify-content: center; /* Center align content items */
             margin: 20px 0;
         }
         .profile-pic {
-            margin-right: 20px;
-            max-width: 350px;
-            height: 262.2px;
-            object-fit: cover;
-            clip-path: polygon(10% 0, 90% 0, 100% 100%, 0 100%);
+            width: 100%; /* Make profile picture width 100% to ensure responsiveness */
+            max-width: 350px; /* Adjust the max-width as needed */
+            height: auto; /* Ensure image height adjusts proportionally */
+            margin-bottom: 20px; /* Added margin bottom for spacing */
         }
         .text-content {
             text-align: left;
-            flex: 1 1 100%; /* Adjust flex properties for responsiveness */
-            margin-top: 20px; /* Add margin between image and text on small screens */
+            flex: 1; /* Take remaining space */
+            margin-left: 20px; /* Added margin left for spacing between image and text */
         }
         footer {
             text-align: center;
             padding: 20px 0;
             background: #f4f4f4;
-            border-top: 1px solid #ccc;
+            border-top: 1px solid #ccc; /* Optional: Add a border on top of the footer */
         }
 
         /* Media query for smaller screens */
         @media only screen and (max-width: 600px) {
             .container {
                 width: 90%;
-                padding: 10px;
-            }
-            .profile-pic {
-                max-width: 100%;
-            }
-            header {
-                padding: 20px 0 10px;
             }
             .text-content {
-                font-size: 0.9em;
+                margin-left: 0; /* Adjust margin left to 0 on smaller screens */
+                margin-top: 20px; /* Add margin top for spacing */
             }
         }
     </style>
@@ -103,7 +98,8 @@
         <section id="home" class="content">
             <img src="Headshot.jpg" alt="Jacob Morris" class="profile-pic">
             <div class="text-content">
-                <p>A brief personal description about your academic interests and background.</p>
+                <p>I am an Economics PhD student at the University of California San Diego (UCSD).</p>
+                <p>My research interests are in labor economics.</p>
                 <div class="contact-info">
                     <p>Email: jacobrmorris [at] ucsd [dot] edu</p>
                 </div>
