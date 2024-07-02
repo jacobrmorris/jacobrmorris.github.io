@@ -15,16 +15,16 @@
         }
         .container {
             width: 80%;
-            margin: auto; 
+            margin: auto;
             padding: 20px;
             max-width: 800px;
             background: #f4f4f4;
-            border: 1px solid #ccc; /* Added a border around the container */
-            border-radius: 10px; /* Optional: Rounded corners for the container */
+            border: 1px solid #ccc; /* Optional: Add a border around the content */
+            border-radius: 10px; /* Optional: Add rounded corners */
         }
         header {
             text-align: center;
-            padding: 40px 0 20px; /* Adjusted padding */
+            padding: 40px 0 20px;
         }
         header h1 {
             margin: 0;
@@ -46,8 +46,8 @@
         }
         .content {
             display: flex;
-            flex-wrap: wrap; /* Added flex-wrap to allow content to wrap on smaller screens */
-            justify-content: center; /* Center align content items */
+            flex-wrap: wrap;
+            justify-content: space-between; /* Spread items evenly */
             margin: 20px 0;
         }
         .profile-pic {
@@ -57,7 +57,6 @@
             margin-bottom: 20px; /* Added margin bottom for spacing */
         }
         .text-content {
-            text-align: left;
             flex: 1; /* Take remaining space */
             margin-left: 20px; /* Added margin left for spacing between image and text */
         }
@@ -73,9 +72,13 @@
             .container {
                 width: 90%;
             }
+            .content {
+                flex-direction: column; /* Stack items vertically */
+                align-items: center; /* Center align items */
+            }
             .text-content {
                 margin-left: 0; /* Adjust margin left to 0 on smaller screens */
-                margin-top: 20px; /* Add margin top for spacing */
+                text-align: center; /* Center align text content */
             }
         }
     </style>
@@ -85,14 +88,10 @@
         <h1>Jacob Morris</h1>
     </header>
     <nav>
-        <input type="checkbox" id="menu-toggle">
-        <label for="menu-toggle">&#9776;</label>
-        <nav class="menu">
-            <a href="index.html">Home</a>
-            <a href="research.html">Research</a>
-            <a href="cv.html">CV</a>
-            <a href="other.html">Other</a>
-        </nav>
+        <a href="index.html">Home</a>
+        <a href="research.html">Research</a>
+        <a href="cv.html">CV</a>
+        <a href="other.html">Other</a>
     </nav>
     <div class="container">
         <section id="home" class="content">
