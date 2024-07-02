@@ -29,15 +29,23 @@
             font-size: 2.5em;
             font-weight: normal;
         }
-        nav {
-            text-align: center;
-            margin: 20px 0;
+        .name-wrapper {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            margin-bottom: 20px;
+        }
+        .name {
+            font-size: 2em;
+        }
+        .sub-pages {
+            text-align: right;
+            font-size: 1.2em;
         }
         nav a {
-            margin: 0 10px;
+            margin-left: 20px;
             color: #333;
             text-decoration: none;
-            font-size: 1.15em;
         }
         nav a:hover {
             text-decoration: underline;
@@ -45,14 +53,13 @@
         .content {
             display: flex;
             align-items: flex-start;
-            margin: 20px 0;
+            margin-bottom: 20px;
         }
         .profile-pic {
             margin-right: 20px;
-            max-width: 350px; /* Adjust the max-width as needed */
-            height: 262.5px; /* Adjust the height as needed */
+            max-width: 400px; /* Adjust the max-width as needed */
+            height: 300px; /* Adjust the height as needed */
             object-fit: cover;
-            clip-path: polygon(10% 0, 90% 0, 100% 100%, 0 100%);
         }
         .text-content {
             text-align: left;
@@ -66,14 +73,17 @@
 </head>
 <body>
     <header>
-        <h1>Jacob Morris</h1>
+        <div class="name-wrapper">
+            <div class="name">
+                <h1>Jacob Morris</h1>
+            </div>
+            <div class="sub-pages">
+                <a href="cv.html">CV</a>
+                <a href="research.html">Research</a>
+                <a href="other.html">Other</a>
+            </div>
+        </div>
     </header>
-    <nav>
-        <a href="index.html">Home</a>
-        <a href="research.html">Research</a>
-        <a href="cv.html">CV</a>
-        <a href="other.html">Other</a>
-    </nav>
     <div class="container">
         <section id="home" class="content">
             <img src="Headshot.jpg" alt="Jacob Morris" class="profile-pic">
