@@ -26,29 +26,26 @@
         }
         header h1 {
             margin: 0;
-            font-size: 2em; /* Adjust font size as needed */
+            font-size: 2.5em;
             font-weight: normal;
         }
-        .name-wrapper {
+        nav {
             text-align: center;
-            margin-bottom: 10px; /* Adjust margin as needed */
+            margin: 20px 0;
         }
-        .sub-pages {
-            text-align: right;
-            font-size: 1.2em; /* Adjust font size as needed */
-        }
-        .sub-pages a {
-            color: #333; /* Adjust link color */
+        nav a {
+            margin: 0 10px;
+            color: #333;
             text-decoration: none;
-            margin-left: 10px; /* Adjust spacing between links */
+            font-size: 1.15em;
         }
-        .sub-pages a:hover {
+        nav a:hover {
             text-decoration: underline;
         }
         .content {
             display: flex;
             align-items: flex-start;
-            margin-bottom: 20px;
+            margin: 20px 0;
         }
         .profile-pic {
             margin-right: 20px;
@@ -68,15 +65,14 @@
 </head>
 <body>
     <header>
-        <div class="name-wrapper">
-            <h1>Jacob Morris</h1>
-        </div>
-        <div class="sub-pages">
-            <a href="cv.html">CV</a>
-            <a href="research.html">Research</a>
-            <a href="other.html">Other</a>
-        </div>
+        <h1>Jacob Morris</h1>
     </header>
+    <nav>
+        <a href="index.html">Home</a>
+        <a href="research.html">Research</a>
+        <a href="cv.html">CV</a>
+        <a href="other.html">Other</a>
+    </nav>
     <div class="container">
         <section id="home" class="content">
             <img src="Headshot.jpg" alt="Jacob Morris" class="profile-pic">
