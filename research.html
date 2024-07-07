@@ -19,7 +19,6 @@
             padding: 20px;
             max-width: 800px;
             background: #f4f4f4;
-            border: 1px solid #ccc;
         }
         header {
             text-align: center;
@@ -55,7 +54,7 @@
         }
         .paper-title {
             font-size: 1.5em;
-            margin: 20px 0 10px;
+            margin: 20px 0 8px;
         }
         .paper-authors a {
             color: #333;
@@ -65,14 +64,14 @@
         .paper-authors a:hover {
             text-decoration: underline;
         }
-        .paper-abstract {
-            margin-top: 10px;
-            opacity: 0.8; /* Adjust the opacity value as needed */
+        .paper-images {
+            display: flex; /* Use flexbox for horizontal alignment */
+            justify-content: space-between; /* Distribute items evenly */
+            margin-bottom: 20px; /* Optional margin for spacing */
         }
         .paper-images img {
-            max-width: 100%;
+            width: 48%; /* Adjust width as needed */
             height: auto;
-            margin: 10px 0;
         }
         footer {
             text-align: center;
