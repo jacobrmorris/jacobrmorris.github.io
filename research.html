@@ -3,110 +3,33 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Research</title>
-    <style>
-        body {
-            font-family: 'Baskerville', serif;
-            line-height: 1.6;
-            margin: 0;
-            padding: 0;
-            background-color: #f4f4f4;
-            color: #333;
-        }
-        .container {
-            width: 80%;
-            margin: auto;
-            padding: 20px;
-            max-width: 800px;
-            background: #f4f4f4;
-        }
-        header {
-            text-align: center;
-            padding: 40px 0 20px;
-        }
-        header h1 {
-            margin: 0;
-            font-size: 2.5em;
-            font-weight: normal;
-        }
-        nav {
-            text-align: center;
-            margin: 20px 0;
-        }
-        nav a {
-            margin: 0 10px;
-            color: #333;
-            text-decoration: none;
-            font-size: 1.15em;
-        }
-        nav a:hover {
-            text-decoration: underline;
-        }
-        .content {
-            margin: 20px 0;
-        }
-        .research-section {
-            margin: 40px 0;
-        }
-        .research-section h2 {
-            margin-bottom: 20px;
-            font-size: 1.8em;
-        }
-        .paper-title {
-            font-size: 1.5em;
-            margin: 10px 0 2px;
-        }
-        .paper-authors a {
-            color: #333;
-            text-decoration: none;
-            font-size: 1.15em;
-        }
-        .paper-authors a:hover {
-            text-decoration: underline;
-        }
-        .paper-abstract {
-             margin-top: 10px;
-             opacity: 0.8; /* Adjust the opacity value as needed */
-        }
-        .paper-images {
-            display: flex; /* Use flexbox for horizontal alignment */
-            justify-content: space-between; /* Distribute items evenly */
-            margin-bottom: 20px; /* Optional margin for spacing */
-        }
-        .paper-images img {
-            width: 49%; /* Adjust width as needed */
-            height: auto;
-        }
-        footer {
-            text-align: center;
-            padding: 20px 0;
-            background: #f4f4f4;
-            border-top: 1px solid #ccc;
-        }
-    </style>
+    <meta name="description" content="Research by Jacob R. Morris — labor economics, mass layoffs, and advance notice requirements.">
+    <meta name="author" content="Jacob R. Morris">
+    <title>Research | Jacob R. Morris</title>
+    <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>JM</text></svg>">
+    <link rel="stylesheet" href="style.css">
 </head>
 <body>
     <header>
         <h1>Jacob R. Morris</h1>
     </header>
     <nav>
-        <a href="/">Home</a> 
-        <a href="research.html">Research</a>
+        <a href="/">Home</a>
+        <a href="research.html" class="active">Research</a>
         <a href="JacobMorris_cv.pdf">CV</a>
-        <!-- <a href="other.html">Other</a> --> <!-- Temporarily unpublished -->   
     </nav>
     <div class="container">
-        <div class="content">
+        <div class="content" style="display: block;">
             <section class="research-section">
                 <h2>Selected Works in Progress</h2>
                 <div class="paper-images">
-                    <img src="works_in_progress/layoff_binscatter.pdf" alt="Image from Estimating the Cost of Advance Notice">
-                    <img src="works_in_progress/layoff_mass_l.pdf" alt="Image from Estimating the Cost of Advance Notice">
+                    <img src="works_in_progress/layoff_binscatter.png" alt="Binscatter showing layoff frequency near notice threshold" loading="lazy">
+                    <img src="works_in_progress/layoff_mass_l.png" alt="Distribution of mass layoff events" loading="lazy">
                 </div>
                 <div class="paper-title">Estimating the Cost of Advance Notice for Firms Conducting Mass Layoffs</div>
-                <div class="paper-authors">with <a href="https://sarahbana.com" target="_blank">Sarah Bana</a></div>
+                <div class="paper-authors">with <a href="https://sarahbana.com" target="_blank" rel="noopener">Sarah Bana</a></div>
                 <div class="paper-abstract">
-                <p>This paper investigates the impact of advance notice requirements on firm behavior during
+                    <p>This paper investigates the impact of advance notice requirements on firm behavior during
 large-scale workforce reductions. We exploit discontinuous policy rules in the Employment
 Standards Act (ESA) to estimate the cost of additional notice requirements for firms
 conducting mass terminations in Ontario, Canada. Our novel empirical evidence shows that
@@ -115,14 +38,14 @@ Specifically, we utilize quasi-experimental variation in notice requirements fac
 ESA to estimate an approximate 30% increase in the frequency of layoff events that bunch
 just below the threshold at which the mandatory notice period discontinuously increases from
 8 to 12 weeks. These discrete jumps in mandatory notice reveal that the costs associated
-with additional notice provisions for displaced workers significantly distort firms’ termination
+with additional notice provisions for displaced workers significantly distort firms' termination
 behavior during mass layoffs.</p>
                 </div>
             </section>
         </div>
     </div>
     <footer>
-        <p>&copy; 2024 Jacob Morris</p>
+        <p>&copy; 2026 Jacob R. Morris</p>
     </footer>
 </body>
 </html>
