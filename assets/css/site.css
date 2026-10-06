@@ -1,0 +1,713 @@
+/* ==========================================================================
+   jacobrmorris.com
+   Colors, type and spacing are defined once as custom properties in :root;
+   dark mode only redefines the colors.
+
+   1. Fonts & tokens      5. Sections
+   2. Base                6. Research
+   3. Layout              7. Teaching & references
+   4. Profile & about     8. Footer, 404, utilities, print
+   ========================================================================== */
+
+/* 1. Fonts & tokens ------------------------------------------------------- */
+
+@font-face {
+  font-family: "Newsreader";
+  src: url("../fonts/newsreader-latin.woff2") format("woff2");
+  font-weight: 400 600;
+  font-style: normal;
+  font-display: swap;
+}
+
+/* Georgia resized to Newsreader's proportions, so headings don't shift when
+   the web font finishes loading. */
+@font-face {
+  font-family: "Newsreader Fallback";
+  src: local("Georgia");
+  size-adjust: 97.9%;
+  ascent-override: 75.1%;
+  descent-override: 27.1%;
+  line-gap-override: 0%;
+}
+
+:root {
+  color-scheme: light dark;
+
+  --font-display: "Newsreader", "Newsreader Fallback", Georgia, serif;
+  --font-text: system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+
+  --bg: #fcfcfa;
+  --text: #1a1a19;
+  --text-muted: #4f4f4a;
+  --text-faint: #6b6b65;
+  --rule: #e3e2dd;
+  --accent: #1f4f8f;
+  --accent-hover: #173c6e;
+  --accent-tint: rgb(31 79 143 / 0.08);
+  --on-accent: #ffffff;
+
+  --content: 64rem;
+  --sidebar: 15rem;
+  --column-gap: clamp(3rem, 6vw, 5rem);
+  --measure: 44rem;
+  --gutter: clamp(1.25rem, 5vw, 2.5rem);
+  --radius: 0.375rem;
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --bg: #131417;
+    --text: #ebebe7;
+    --text-muted: #b9b9b2;
+    --text-faint: #92928b;
+    --rule: #2b2d32;
+    --accent: #93b6f2;
+    --accent-hover: #b8cff8;
+    --accent-tint: rgb(147 182 242 / 0.12);
+    --on-accent: #131417;
+  }
+}
+
+/* 2. Base ----------------------------------------------------------------- */
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+html {
+  -webkit-text-size-adjust: 100%;
+  text-size-adjust: 100%;
+  scroll-padding-top: 1.5rem;
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  html {
+    scroll-behavior: smooth;
+  }
+}
+
+body {
+  margin: 0;
+  background: var(--bg);
+  color: var(--text);
+  font: 400 1.0625rem/1.65 var(--font-text);
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+h1,
+h2,
+h3,
+h4 {
+  margin: 0;
+  font-family: var(--font-display);
+  font-weight: 500;
+  line-height: 1.2;
+  text-wrap: balance;
+}
+
+p,
+ul,
+ol,
+address {
+  margin: 0;
+}
+
+p {
+  text-wrap: pretty;
+}
+
+img {
+  display: block;
+  max-width: 100%;
+  height: auto;
+}
+
+a {
+  color: var(--accent);
+  text-decoration-line: underline;
+  text-decoration-thickness: 1px;
+  text-underline-offset: 0.2em;
+  text-decoration-color: color-mix(in srgb, currentColor 40%, transparent);
+  transition: color 0.15s ease, text-decoration-color 0.15s ease;
+}
+
+a:hover {
+  color: var(--accent-hover);
+  text-decoration-color: currentColor;
+}
+
+:focus-visible {
+  outline: 2px solid var(--accent);
+  outline-offset: 3px;
+  border-radius: 2px;
+}
+
+::selection {
+  background: var(--accent-tint);
+}
+
+main:focus {
+  outline: none;
+}
+
+.skip-link {
+  position: absolute;
+  top: 0.75rem;
+  left: 0.75rem;
+  z-index: 10;
+  padding: 0.5rem 0.875rem;
+  border-radius: var(--radius);
+  background: var(--accent);
+  color: var(--on-accent);
+  font-weight: 600;
+  text-decoration: none;
+  transform: translateY(-200%);
+}
+
+.skip-link:focus {
+  transform: none;
+}
+
+/* 3. Layout --------------------------------------------------------------- */
+
+.wrap {
+  width: min(100% - 2 * var(--gutter), var(--content));
+  margin-inline: auto;
+}
+
+/* Home page: profile column beside the main column. */
+.layout {
+  display: grid;
+  grid-template-columns: var(--sidebar) minmax(0, var(--measure));
+  gap: 0 var(--column-gap);
+  align-items: start;
+  padding-top: clamp(2.5rem, 7vw, 4.5rem);
+}
+
+.main-column {
+  max-width: var(--measure);
+}
+
+/* Other pages (404) get a simple header with a link home. */
+.site-header .wrap {
+  padding-block: 1.5rem;
+}
+
+.wordmark {
+  color: var(--text);
+  font-family: var(--font-display);
+  font-size: 1.1875rem;
+  font-weight: 500;
+  text-decoration: none;
+}
+
+.wordmark:hover {
+  color: var(--text);
+}
+
+/* 4. Profile & about ------------------------------------------------------ */
+
+.profile {
+  position: sticky;
+  top: 2.5rem;
+}
+
+.profile-photo img {
+  width: 100%;
+  aspect-ratio: 4 / 5;
+  border-radius: var(--radius);
+  object-fit: cover;
+}
+
+.profile h1 {
+  margin-top: 1.25rem;
+  font-size: 1.75rem;
+  line-height: 1.15;
+  letter-spacing: -0.01em;
+}
+
+.profile-position {
+  margin-top: 0.5rem;
+  color: var(--text-muted);
+  font-size: 0.9375rem;
+  line-height: 1.5;
+}
+
+.profile-links {
+  display: grid;
+  justify-items: start;
+  gap: 0.125rem;
+  margin-top: 1.25rem;
+  padding: 0;
+  list-style: none;
+  font-size: 0.9375rem;
+  font-weight: 500;
+}
+
+.profile-links a {
+  display: inline-block;
+  padding-block: 0.125rem;
+  text-decoration: none;
+}
+
+.profile-links a:hover {
+  text-decoration: underline;
+}
+
+.profile-address {
+  margin-top: 1.25rem;
+  color: var(--text-faint);
+  font-size: 0.875rem;
+  font-style: normal;
+  line-height: 1.55;
+}
+
+.about {
+  font-size: 1.125rem;
+}
+
+.about p + p {
+  margin-top: 0.75em;
+}
+
+.job-market {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  margin-bottom: 1rem;
+  padding: 0.25rem 0.75rem;
+  border-radius: 999px;
+  background: var(--accent-tint);
+  color: var(--accent);
+  font-size: 0.8125rem;
+  font-weight: 600;
+}
+
+.job-market::before {
+  content: "";
+  width: 0.4375rem;
+  height: 0.4375rem;
+  border-radius: 50%;
+  background: currentColor;
+}
+
+/* A sticky column taller than the window would hide its last lines. */
+@media (max-height: 44rem) {
+  .profile {
+    position: static;
+  }
+}
+
+/* Narrow screens: one column, with a small photo beside the name. The mailing
+   address is left out here so the bio follows right after the contact links. */
+@media (max-width: 56rem) {
+  .layout {
+    grid-template-columns: minmax(0, 1fr);
+    gap: 2.25rem;
+    padding-top: 2rem;
+  }
+
+  .profile {
+    position: static;
+    display: grid;
+    grid-template-columns: 5.5rem 1fr;
+    gap: 0 1.25rem;
+    align-items: center;
+  }
+
+  .profile-photo {
+    grid-row: span 2;
+  }
+
+  .profile h1 {
+    align-self: end;
+    margin-top: 0;
+    font-size: 1.875rem;
+  }
+
+  .profile-position {
+    align-self: start;
+    margin-top: 0.375rem;
+  }
+
+  .profile-links {
+    grid-column: 1 / -1;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.25rem 1.25rem;
+  }
+
+  .profile-address {
+    display: none;
+  }
+}
+
+/* 5. Sections ------------------------------------------------------------- */
+
+.section {
+  margin-top: clamp(2.75rem, 6vw, 3.75rem);
+}
+
+.section-title {
+  margin-bottom: 1.5rem;
+  padding-bottom: 0.75rem;
+  border-bottom: 1px solid var(--rule);
+  font-size: clamp(1.5rem, 1.3rem + 0.8vw, 1.75rem);
+  letter-spacing: -0.01em;
+}
+
+.label {
+  color: var(--text-faint);
+  font-family: var(--font-text);
+  font-size: 0.75rem;
+  font-weight: 600;
+  letter-spacing: 0.09em;
+  line-height: 1.4;
+  text-transform: uppercase;
+}
+
+/* 6. Research ------------------------------------------------------------- */
+
+.paper-group + .paper-group {
+  margin-top: 2.75rem;
+}
+
+.paper-group > .label {
+  margin-bottom: 1rem;
+}
+
+.paper + .paper {
+  margin-top: 1.75rem;
+}
+
+.paper-title {
+  font-size: 1.1875rem;
+  font-weight: 550;
+  line-height: 1.3;
+  letter-spacing: -0.005em;
+}
+
+.paper--featured .paper-title {
+  font-size: clamp(1.375rem, 1.2rem + 0.8vw, 1.625rem);
+}
+
+.paper-title a {
+  color: inherit;
+  text-decoration: none;
+}
+
+.paper-title a:hover {
+  color: var(--accent);
+}
+
+.paper-meta {
+  margin-top: 0.375rem;
+  color: var(--text-muted);
+  font-size: 0.9375rem;
+}
+
+.paper-meta a {
+  color: inherit;
+}
+
+.paper-meta > * + *::before {
+  content: "·";
+  margin-inline: 0.5em;
+  color: var(--text-faint);
+}
+
+.paper-actions {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 0.25rem 1.25rem;
+  margin-top: 0.5rem;
+  padding: 0;
+  list-style: none;
+  font-size: 0.9375rem;
+  font-weight: 500;
+}
+
+.paper-actions a {
+  text-decoration: none;
+}
+
+.paper-actions a:hover {
+  text-decoration: underline;
+}
+
+/* Looks like the links beside it, plus a chevron that flips when open. */
+.abstract-toggle {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4375rem;
+  padding: 0;
+  border: 0;
+  background: none;
+  color: var(--accent);
+  font: inherit;
+  cursor: pointer;
+}
+
+.abstract-toggle[hidden] {
+  display: none;
+}
+
+.abstract-toggle::after {
+  content: "";
+  width: 0.375rem;
+  height: 0.375rem;
+  border-right: 1.5px solid currentColor;
+  border-bottom: 1.5px solid currentColor;
+  transform: translateY(-0.125rem) rotate(45deg);
+  transition: transform 0.15s ease;
+}
+
+.abstract-toggle[aria-expanded="true"]::after {
+  transform: translateY(0.125rem) rotate(-135deg);
+}
+
+.abstract-toggle:hover {
+  color: var(--accent-hover);
+  text-decoration: underline;
+}
+
+.paper-abstract {
+  margin-top: 1rem;
+  color: var(--text-muted);
+  font-size: 1rem;
+  line-height: 1.7;
+}
+
+/* A collapsed abstract (hidden="until-found") still has a box; drop its margin. */
+.paper-abstract[hidden] {
+  margin-top: 0;
+}
+
+.paper-abstract p + p {
+  margin-top: 0.75em;
+}
+
+.figures {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(15rem, 1fr));
+  gap: 1.5rem 2rem;
+  margin-top: 2rem;
+}
+
+.figures figure {
+  margin: 0;
+}
+
+.figure-link {
+  display: block;
+  border-radius: var(--radius);
+  cursor: zoom-in;
+}
+
+.figures img {
+  width: 100%;
+  border-radius: var(--radius);
+  background: #fff;
+}
+
+.figures figcaption {
+  margin-top: 0.75rem;
+  color: var(--text-faint);
+  font-size: 0.8125rem;
+  line-height: 1.5;
+}
+
+@media (prefers-color-scheme: dark) {
+  .figures img {
+    padding: 0.375rem;
+    filter: brightness(0.92);
+  }
+}
+
+/* 7. Teaching & references ------------------------------------------------ */
+
+.teaching-role {
+  color: var(--text-muted);
+}
+
+.course-list {
+  margin-top: 0.75rem;
+  padding: 0;
+  list-style: none;
+}
+
+.course-list li {
+  display: grid;
+  grid-template-columns: 6.5rem 1fr;
+  gap: 1rem;
+  padding-block: 0.625rem;
+  border-top: 1px solid var(--rule);
+}
+
+.course-list li:last-child {
+  border-bottom: 1px solid var(--rule);
+}
+
+.course-code {
+  color: var(--text-faint);
+  font-size: 0.9375rem;
+  font-variant-numeric: tabular-nums;
+}
+
+.awards {
+  margin-top: 1.25rem;
+  padding: 0;
+  list-style: none;
+  color: var(--text-muted);
+}
+
+.awards li {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.awards svg {
+  flex: none;
+  width: 1.125rem;
+  height: 1.125rem;
+  color: var(--accent);
+}
+
+.references {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(12.5rem, 1fr));
+  gap: 1.5rem 2rem;
+  padding: 0;
+  list-style: none;
+}
+
+.reference-name {
+  font-family: var(--font-display);
+  font-size: 1.1875rem;
+  font-weight: 550;
+}
+
+.reference-name a {
+  color: inherit;
+  text-decoration: none;
+}
+
+.reference-name a:hover {
+  color: var(--accent);
+}
+
+.references p:not(.reference-name) {
+  color: var(--text-muted);
+  font-size: 0.9375rem;
+}
+
+/* 8. Footer, 404, utilities, print ---------------------------------------- */
+
+.site-footer {
+  margin-top: clamp(3.5rem, 9vw, 5.5rem);
+  color: var(--text-faint);
+  font-size: 0.875rem;
+}
+
+.site-footer .wrap {
+  padding-block: 1.5rem 2.5rem;
+}
+
+/* On the home page, line the footer up with the main column. */
+@media (min-width: 56.01rem) {
+  .home .site-footer .wrap {
+    padding-left: calc(var(--sidebar) + var(--column-gap));
+  }
+}
+
+.not-found {
+  padding-block: clamp(3rem, 12vw, 7rem) 0;
+}
+
+.not-found h1 {
+  margin: 0.5rem 0 1rem;
+  font-size: clamp(2.25rem, 1.75rem + 2vw, 3rem);
+}
+
+.not-found p + p {
+  margin-top: 0.5rem;
+}
+
+.eyebrow {
+  color: var(--text-faint);
+  font-size: 0.875rem;
+  font-weight: 600;
+  letter-spacing: 0.09em;
+}
+
+.visually-hidden {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  overflow: hidden;
+  clip-path: inset(50%);
+  white-space: nowrap;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    transition: none !important;
+  }
+}
+
+@media print {
+  :root {
+    --bg: #fff;
+    --text: #000;
+    --text-muted: #222;
+    --text-faint: #555;
+    --rule: #ccc;
+    --accent: #000;
+  }
+
+  body {
+    font-size: 10.5pt;
+  }
+
+  .layout {
+    display: block;
+  }
+
+  .profile {
+    position: static;
+  }
+
+  .profile-photo {
+    width: 7rem;
+  }
+
+  .skip-link,
+  .abstract-toggle {
+    display: none;
+  }
+
+  /* Print every abstract, including collapsed ones. */
+  .paper-abstract[hidden] {
+    display: block !important;
+    content-visibility: visible !important;
+    margin-top: 1rem;
+  }
+
+  .paper,
+  .figures figure,
+  .references li {
+    break-inside: avoid;
+  }
+
+  .paper-actions a::after {
+    content: " (" attr(href) ")";
+    font-weight: 400;
+  }
+}

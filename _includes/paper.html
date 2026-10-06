@@ -1,0 +1,84 @@
+{%- comment -%}
+  One research entry: title, authors and status, then a row of links
+  (Paper, Slides, …) ending in an "Abstract" toggle that opens the abstract and
+  figures. The job market paper (job-market mode) shows them without a toggle.
+  Without JavaScript the toggles stay hidden and abstracts are simply shown.
+  Parameters:
+    paper     — an entry from _data/research.yml
+    featured  — true for the job market paper (larger title, abstract shown)
+    status    — optional status text for the meta line (used when the
+                research list has a single group and no group headings)
+    level     — heading level for the title: 4 under a group heading
+                (default), 3 when there is none
+{%- endcomment -%}
+{%- assign paper = include.paper -%}
+{%- assign level = include.level | default: 4 -%}
+{%- assign main_link = paper.links | first -%}
+{%- assign panel_id = paper.title | slugify | prepend: "abstract-" -%}
+{%- assign has_panel = false -%}
+{%- if paper.abstract or paper.figures -%}{%- assign has_panel = true -%}{%- endif -%}
+{%- assign show_toggle = false -%}
+{%- if has_panel -%}{%- unless include.featured -%}{%- assign show_toggle = true -%}{%- endunless -%}{%- endif -%}
+<article class="paper{% if include.featured %} paper--featured{% endif %}">
+  <h{{ level }} class="paper-title">
+    {%- if main_link -%}
+      <a href="{{ main_link.url | relative_url }}">{{ paper.title }}</a>
+    {%- else -%}
+      {{ paper.title }}
+    {%- endif -%}
+  </h{{ level }}>
+
+  {%- if paper.coauthors or paper.journal or paper.note or include.status %}
+  <p class="paper-meta">
+    {%- if paper.coauthors -%}
+      <span>with
+        {%- for name in paper.coauthors %}
+          {%- unless forloop.first -%}{%- if forloop.last -%}{%- if forloop.length > 2 -%},{%- endif %} and{% else %},{% endif -%}{%- endunless %}
+          {% assign url = site.data.coauthors[name] -%}
+          {%- if url and url != "" -%}<a href="{{ url }}">{{ name }}</a>{%- else -%}{{ name }}{%- endif -%}
+        {%- endfor -%}
+      </span>
+    {%- endif -%}
+    {%- if paper.journal -%}
+      <span><cite>{{ paper.journal }}</cite>{% if paper.year %}, {{ paper.year }}{% endif %}</span>
+    {%- endif -%}
+    {%- if include.status -%}
+      <span>{{ include.status }}</span>
+    {%- endif -%}
+    {%- if paper.note -%}
+      <span>{{ paper.note }}</span>
+    {%- endif -%}
+  </p>
+  {%- endif %}
+
+  {%- if paper.links or show_toggle %}
+  <ul class="paper-actions">
+    {%- for link in paper.links %}
+    <li><a href="{{ link.url | relative_url }}">{{ link.label }}</a></li>
+    {%- endfor %}
+    {%- if show_toggle %}
+    <li><button type="button" class="abstract-toggle" aria-expanded="false" aria-controls="{{ panel_id }}" hidden>Abstract<span class="visually-hidden"> of “{{ paper.title }}”</span></button></li>
+    {%- endif %}
+  </ul>
+  {%- endif %}
+
+  {%- if has_panel %}
+  <div class="paper-abstract" id="{{ panel_id }}">
+    {{ paper.abstract | markdownify }}
+    {%- if paper.figures %}
+    <div class="figures">
+      {%- for figure in paper.figures %}
+      <figure>
+        <a href="{{ figure.src | relative_url }}" class="figure-link">
+          <img src="{{ figure.src | relative_url }}" alt="{{ figure.alt | strip }}"{% if figure.width %} width="{{ figure.width }}" height="{{ figure.height }}"{% endif %} loading="lazy" decoding="async">
+        </a>
+        {%- if figure.caption %}
+        <figcaption>{{ figure.caption | strip }}</figcaption>
+        {%- endif %}
+      </figure>
+      {%- endfor %}
+    </div>
+    {%- endif %}
+  </div>
+  {%- endif %}
+</article>

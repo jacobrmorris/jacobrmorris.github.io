@@ -1,0 +1,54 @@
+# ─────────────────────────────────────────────────────────────────────────────
+# About you — name, bio, links and job-market settings used across the site.
+# ─────────────────────────────────────────────────────────────────────────────
+
+# Job-market mode. Set `enabled: true` the fall you go on the market. It adds
+# the "on the job market" line under your name, features the paper marked
+# `jmp: true` in research.yml first, and lists your references.
+job_market:
+  enabled: false
+  season: 2027–2028
+  # Optional extra sentence shown with the job-market line, e.g. interview plans.
+  note:
+
+name: Jacob R. Morris
+position: PhD Student in Economics
+institution: University of California San Diego
+institution_short: UC San Diego
+institution_url: https://ucsd.edu
+department_url: https://economics.ucsd.edu
+
+# Shown under your name on the home page. Markdown is fine.
+bio: >-
+  My research is in labor and public economics, with a focus on how labor market
+  regulation shapes firms' employment decisions. I am also a Research Fellow at
+  the [California Policy Lab](https://www.capolicylab.org).
+
+fields: [Labor Economics, Public Economics]
+
+# Email is split in two so that spam scrapers can't read it from the page.
+email:
+  user: jacobrmorris
+  domain: ucsd.edu
+
+cv: /JacobMorris_cv.pdf
+
+photo:
+  src: /assets/img/headshot.jpg
+  alt: Portrait of Jacob R. Morris
+
+address:
+  - Department of Economics
+  - University of California San Diego
+  - 9500 Gilman Drive
+  - La Jolla, CA 92093
+
+# Profile links. Leave a value empty to hide it.
+links:
+  google_scholar:
+  ssrn:
+  orcid:
+  linkedin:
+  github:
+  bluesky:
+  x:

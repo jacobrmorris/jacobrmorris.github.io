@@ -1,37 +1,79 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="Jacob R. Morris — Economics PhD student at UC San Diego, researching labor economics.">
-    <meta name="author" content="Jacob R. Morris">
-    <title>Jacob R. Morris | Economics PhD, UCSD</title>
-    <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>JM</text></svg>">
-    <link rel="stylesheet" href="style.css">
-</head>
-<body>
-    <header>
-        <h1>Jacob R. Morris</h1>
-    </header>
-    <nav>
-        <a href="/" class="active">Home</a>
-        <a href="research.html">Research</a>
-        <a href="JacobMorris_cv.pdf">CV</a>
-    </nav>
-    <div class="container">
-        <section id="home" class="content">
-            <img src="Headshot.jpg" alt="Jacob R. Morris" class="profile-pic">
-            <div class="text-content">
-                <p>I am an Economics PhD student at the University of California San Diego (UCSD).</p>
-                <p>My research interests are in labor economics.</p>
-                <div class="contact-info">
-                    <p>Feel free to contact me at: jacobrmorris [at] ucsd [dot] edu</p>
-                </div>
-            </div>
-        </section>
-    </div>
-    <footer>
-        <p>&copy; 2026 Jacob R. Morris</p>
-    </footer>
-</body>
-</html>
+---
+---
+{%- comment -%}
+  The whole site is this one page: a profile column (photo, name, contact)
+  beside the main column (bio, research, references). Content comes from
+  _data/: profile.yml, research.yml, coauthors.yml, references.yml and the
+  optional teaching.yml.
+{%- endcomment -%}
+{%- assign profile = site.data.profile -%}
+{%- assign job_market = profile.job_market.enabled -%}
+{%- assign jmp = nil -%}
+{%- if job_market -%}{%- assign jmp = site.data.research | where: "jmp", true | first -%}{%- endif -%}
+{%- assign jmp_link = jmp.links | first -%}
+
+<div class="wrap layout">
+  <header id="contact" class="profile">
+    <picture class="profile-photo">
+      <source srcset="{{ '/assets/img/headshot.webp' | relative_url }}" type="image/webp">
+      <img src="{{ profile.photo.src | relative_url }}" alt="{{ profile.photo.alt }}" width="266" height="333" fetchpriority="high">
+    </picture>
+    <h1>{{ profile.name }}</h1>
+    <p class="profile-position">{{ profile.position }}<br>{{ profile.institution }}</p>
+    <ul class="profile-links">
+      {%- if jmp_link %}
+      <li><a href="{{ jmp_link.url | relative_url }}">Job Market Paper</a></li>
+      {%- endif %}
+      <li>{% include email.html %}</li>
+      <li><a href="{{ profile.cv | relative_url }}">CV<span class="visually-hidden"> (PDF)</span></a></li>
+      {%- for link in profile.links %}
+        {%- if link[1] and link[1] != "" %}
+          {%- case link[0] -%}
+            {%- when "google_scholar" -%}{%- assign link_label = "Google Scholar" -%}
+            {%- when "ssrn" -%}{%- assign link_label = "SSRN" -%}
+            {%- when "orcid" -%}{%- assign link_label = "ORCID" -%}
+            {%- when "linkedin" -%}{%- assign link_label = "LinkedIn" -%}
+            {%- when "github" -%}{%- assign link_label = "GitHub" -%}
+            {%- when "bluesky" -%}{%- assign link_label = "Bluesky" -%}
+            {%- when "x" -%}{%- assign link_label = "X" -%}
+            {%- else -%}{%- assign link_label = link[0] | replace: "_", " " | capitalize -%}
+          {%- endcase %}
+      <li><a href="{{ link[1] }}">{{ link_label }}</a></li>
+        {%- endif -%}
+      {%- endfor %}
+    </ul>
+    <address class="profile-address">{{ profile.address | join: "<br>" }}</address>
+  </header>
+
+  <div class="main-column">
+    <section id="about" class="about" aria-labelledby="about-title">
+      <h2 id="about-title" class="section-title">About</h2>
+      {%- if job_market %}
+      <p class="job-market">On the {{ profile.job_market.season }} academic job market</p>
+      {%- endif %}
+      {{ profile.bio | markdownify }}
+      {%- if job_market and profile.job_market.note %}
+      <p>{{ profile.job_market.note }}</p>
+      {%- endif %}
+    </section>
+
+    <section id="research" class="section" aria-labelledby="research-title">
+      <h2 id="research-title" class="section-title">Research</h2>
+      {% include research.html %}
+    </section>
+
+    {%- if site.data.teaching.positions.size > 0 %}
+    <section id="teaching" class="section" aria-labelledby="teaching-title">
+      <h2 id="teaching-title" class="section-title">Teaching</h2>
+      {% include teaching.html %}
+    </section>
+    {%- endif %}
+
+    {%- if job_market and site.data.references.size > 0 %}
+    <section id="references" class="section" aria-labelledby="references-title">
+      <h2 id="references-title" class="section-title">References</h2>
+      {% include references.html %}
+    </section>
+    {%- endif %}
+  </div>
+</div>

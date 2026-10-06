@@ -1,0 +1,16 @@
+{%- assign teaching = site.data.teaching -%}
+{%- for position in teaching.positions %}
+<p class="teaching-role">{{ position.role }}, {{ position.institution }}</p>
+<ul class="course-list">
+  {%- for course in position.courses %}
+  <li><span class="course-code">{{ course.code }}</span><span>{{ course.title }}</span></li>
+  {%- endfor %}
+</ul>
+{%- endfor %}
+{%- if teaching.awards %}
+<ul class="awards">
+  {%- for award in teaching.awards %}
+  <li>{% include icon.html name="award" %}{{ award.name }}, {{ award.year }}</li>
+  {%- endfor %}
+</ul>
+{%- endif %}

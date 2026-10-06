@@ -1,0 +1,8 @@
+# Letter writers. Shown on the site only while job-market mode is on
+# (job_market.enabled in _data/profile.yml).
+#
+# - name: Jane Doe
+#   title: Professor of Economics
+#   institution: University of California San Diego
+#   email: jdoe@ucsd.edu
+#   url: https://example.com

@@ -1,2 +1,14 @@
+# Jekyll build output and caches
+_site/
+.jekyll-cache/
+.jekyll-metadata
+.sass-cache/
+
+# Local Ruby setup. Gemfile.lock stays local: GitHub Pages ignores it, and
+# committing it only triggers Dependabot alerts for gems that never reach the site.
+Gemfile.lock
+.bundle/
+vendor/
+
+# macOS
 .DS_Store
-../.DS_Store

@@ -1,0 +1,10 @@
+{%- comment -%}
+  Email link assembled by assets/js/site.js, so the full address never appears
+  in the page source. Without JavaScript it reads "user [at] domain [dot] edu".
+    label  — link content (may include HTML); default is the address itself
+    class  — optional CSS class
+{%- endcomment -%}
+{%- assign email = site.data.profile.email -%}
+<a{% if include.class %} class="{{ include.class }}"{% endif %} href="{{ '/#contact' | relative_url }}" data-email-user="{{ email.user }}" data-email-domain="{{ email.domain }}"{% unless include.label %} data-email-show{% endunless %}>
+  {%- if include.label -%}{{ include.label }}{%- else -%}{{ email.user }} [at] {{ email.domain | replace: '.', ' [dot] ' }}{%- endif -%}
+</a>

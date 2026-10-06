@@ -1,0 +1,39 @@
+# Site settings. Content lives in _data/ — you rarely need to touch this file.
+# (Changes here need a restart of `bundle exec jekyll serve` to show up locally.)
+
+title: Jacob R. Morris
+description: >-
+  Jacob R. Morris is a PhD student in economics at UC San Diego working on
+  labor and public economics.
+url: https://jacobrmorris.com
+repository: jacobrmorris/jacobrmorris.github.io
+lang: en
+timezone: America/Los_Angeles
+
+plugins:
+  - jekyll-sitemap
+  - jekyll-redirect-from
+
+# GitHub Pages applies its default theme unless told not to; this site has its own.
+theme: null
+
+redirect_from:
+  json: false
+
+defaults:
+  - scope: { path: "" }
+    values: { layout: default }
+  - scope: { path: "assets" }
+    values: { sitemap: false }
+
+# Jekyll 3 replaces (rather than extends) its default exclude list, so the
+# defaults are repeated here.
+exclude:
+  - README.md
+  - Gemfile
+  - Gemfile.lock
+  - vendor
+  - .bundle
+  - .jekyll-cache
+  - .sass-cache
+  - node_modules

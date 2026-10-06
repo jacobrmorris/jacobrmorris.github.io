@@ -1,0 +1,11 @@
+{%- comment -%}
+  Only pages other than the home page get a header (a link back home); on the
+  home page the profile column plays that role.
+{%- endcomment -%}
+{%- unless page.url == "/" %}
+<header class="site-header">
+  <div class="wrap">
+    <a class="wordmark" href="{{ '/' | relative_url }}">{{ site.data.profile.name }}</a>
+  </div>
+</header>
+{%- endunless %}

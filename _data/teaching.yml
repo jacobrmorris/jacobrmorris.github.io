@@ -1,0 +1,20 @@
+# Teaching experience. The Teaching section (and its nav link) appears on the
+# site only when this file has entries, so it's currently hidden.
+#
+# To show it, uncomment and edit. The courses below are from the Nov 2024 CV
+# and may be incomplete, so check them before publishing.
+#
+# positions:
+#   - role: Teaching Assistant
+#     institution: University of California San Diego
+#     courses:
+#       - code: Econ 120C
+#         title: Advanced Econometrics
+#       - code: Econ 138
+#         title: Economics of Discrimination
+#       - code: Econ 1
+#         title: Principles of Microeconomics
+#
+# awards:
+#   - name: TA Excellence Award
+#     year: 2024

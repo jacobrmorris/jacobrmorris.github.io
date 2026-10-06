@@ -1,0 +1,69 @@
+# ─────────────────────────────────────────────────────────────────────────────
+# Research — every paper on the site comes from this file.
+#
+# Papers are grouped by `status` and appear in the order listed here.
+#
+#   title       (required)
+#   status      (required)  published | working | progress
+#                 published → "Publications"   (also set `journal` and `year`)
+#                 working   → "Working Papers"
+#                 progress  → "Work in Progress"
+#   jmp         true marks your job market paper. While job-market mode is on
+#               (_data/profile.yml), it is shown first as "Job Market Paper",
+#               with its abstract and figures open.
+#   coauthors   list of names; their links live in _data/coauthors.yml
+#   abstract    plain text or Markdown, opened by the "Abstract" toggle
+#   figures     optional list of { src, alt, caption } shown with the abstract
+#   links       optional list of { label, url }, e.g. Paper (PDF), Slides, SSRN.
+#               They appear in one row before the "Abstract" toggle, and the
+#               first link is also where the title points.
+#   note        optional short status line, e.g. "Revise & resubmit, AER"
+#
+# To post a paper: put the PDF in /papers/ (e.g. papers/morris-jmp.pdf) and add
+#   links:
+#     - label: Paper
+#       url: /papers/morris-jmp.pdf
+# Keep the file name the same when you update a draft so links never break.
+# ─────────────────────────────────────────────────────────────────────────────
+
+- title: Estimating the Cost of Advance Notice for Firms Conducting Mass Layoffs
+  status: progress
+  coauthors: [Sarah Bana]
+  abstract: >-
+    This paper investigates the impact of advance notice requirements on firm
+    behavior during large-scale workforce reductions. We exploit discontinuous
+    policy rules in the Employment Standards Act (ESA) to estimate the cost of
+    additional notice requirements for firms conducting mass terminations in
+    Ontario, Canada. Our novel empirical evidence shows that firms strategically
+    manipulate the scale of layoffs to circumvent additional notice obligations.
+    Specifically, we utilize quasi-experimental variation in notice requirements
+    facilitated by the ESA to estimate an approximate 30% increase in the
+    frequency of layoff events that bunch just below the threshold at which the
+    mandatory notice period discontinuously increases from 8 to 12 weeks. These
+    discrete jumps in mandatory notice reveal that the costs associated with
+    additional notice provisions for displaced workers significantly distort
+    firms' termination behavior during mass layoffs.
+  figures:
+    - src: /assets/figures/layoffs-by-size.webp
+      width: 1800
+      height: 1200
+      alt: >-
+        Scatter plot of the number of mass layoff events by number of employees
+        terminated, from 0 to about 700. Dashed vertical lines mark 50, 200, and
+        500 employees. Counts peak just above 50 and decline with layoff size,
+        with visible spikes just below 200 and just below 500.
+      caption: >-
+        Layoff events by number of employees terminated. Dashed lines mark the
+        50-, 200- and 500-employee thresholds in Ontario's mass termination
+        notice rules.
+    - src: /assets/figures/bunching-at-200.webp
+      width: 1800
+      height: 1200
+      alt: >-
+        Number of layoff events by number of employees terminated, from 50 to
+        about 450, with a smooth fitted counterfactual curve. A shaded region
+        between roughly 180 and 200 employees shows layoff counts well above the
+        counterfactual just below the 200-employee threshold.
+      caption: >-
+        Excess mass of layoffs just below 200 employees, where required notice
+        rises from 8 to 12 weeks, relative to a smooth counterfactual.

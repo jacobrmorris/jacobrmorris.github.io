@@ -1,0 +1,17 @@
+<ul class="references">
+  {%- for reference in site.data.references %}
+  <li>
+    <p class="reference-name">
+      {%- if reference.url -%}
+        <a href="{{ reference.url }}">{{ reference.name }}</a>
+      {%- else -%}
+        {{ reference.name }}
+      {%- endif -%}
+    </p>
+    <p>{{ reference.title }}<br>{{ reference.institution }}</p>
+    {%- if reference.email %}
+    <p><a href="mailto:{{ reference.email }}">{{ reference.email }}</a></p>
+    {%- endif %}
+  </li>
+  {%- endfor %}
+</ul>

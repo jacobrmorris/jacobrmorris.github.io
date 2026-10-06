@@ -1,0 +1,43 @@
+{%- comment -%}
+  schema.org metadata for search engines, built from _data/profile.yml.
+  WebSite sets the site name Google shows in results; ProfilePage/Person
+  describes you. Email is deliberately left out.
+{%- endcomment -%}
+{%- assign profile = site.data.profile -%}
+{%- assign same_as = "" | split: "" -%}
+{%- for link in profile.links -%}
+  {%- if link[1] and link[1] != "" -%}{%- assign same_as = same_as | push: link[1] -%}{%- endif -%}
+{%- endfor -%}
+{%- capture short_name -%}{{ profile.name | split: " " | first }} {{ profile.name | split: " " | last }}{%- endcapture -%}
+<script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@graph": [
+      {
+        "@type": "WebSite",
+        "name": {{ profile.name | jsonify }},
+        "alternateName": {{ short_name | jsonify }},
+        "url": {{ '/' | absolute_url | jsonify }}
+      },
+      {
+        "@type": "ProfilePage",
+        "url": {{ '/' | absolute_url | jsonify }},
+        "mainEntity": {
+          "@type": "Person",
+          "name": {{ profile.name | jsonify }},
+          "alternateName": {{ short_name | jsonify }},
+          "jobTitle": {{ profile.position | jsonify }},
+          "url": {{ '/' | absolute_url | jsonify }},
+          "image": {{ profile.photo.src | absolute_url | jsonify }},
+          "affiliation": {
+            "@type": "CollegeOrUniversity",
+            "name": {{ profile.institution | jsonify }},
+            "url": {{ profile.institution_url | jsonify }}
+          },
+          "knowsAbout": {{ profile.fields | jsonify }}{% if same_as.size > 0 %},
+          "sameAs": {{ same_as | jsonify }}{% endif %}
+        }
+      }
+    ]
+  }
+  </script>
