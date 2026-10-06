@@ -21,13 +21,14 @@ department_url: https://economics.ucsd.edu
 # Shown under "About" on the home page. Markdown is fine; leave a blank line
 # between paragraphs.
 bio: |
-  My research is in labor and public economics, with a focus on job loss and the
+  My research is in labor and public economics, with a focus on job loss and
   policies meant to protect displaced workers.
 
-  I am also a Graduate Research Fellow at the
-  [California Policy Lab](https://www.capolicylab.org), where I work with
-  administrative data from California's
-  [Employment Development Department](https://edd.ca.gov) (EDD).
+  I am also a researcher at the
+  [California Policy Lab](https://www.capolicylab.org) and California's
+  [Employment Development Department](https://edd.ca.gov) (EDD), where I work
+  with administrative unemployment insurance claims and linked
+  employer–employee wage records.
 
 fields: [Labor Economics, Public Economics]
 
