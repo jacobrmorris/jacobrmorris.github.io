@@ -4,10 +4,11 @@
 # Papers are grouped by `status` and appear in the order listed here.
 #
 #   title       (required)
-#   status      (required)  published | working | progress
+#   status      (required)  published | working | progress | policy
 #                 published → "Publications"   (also set `journal` and `year`)
 #                 working   → "Working Papers"
 #                 progress  → "Work in Progress"
+#                 policy    → its own "Policy Reports" section, after Research
 #   jmp         true marks your job market paper. While job-market mode is on
 #               (_data/profile.yml), it is shown first as "Job Market Paper",
 #               with its abstract and figures open.
@@ -67,3 +68,40 @@
       caption: >-
         Excess mass of layoffs just below 200 employees, where required notice
         rises from 8 to 12 weeks, relative to a smooth counterfactual.
+
+- title: Tracking AI-Related Job Loss Using Unemployment Insurance Claims Data in California
+  status: policy
+  coauthors: [Ben Hyman, Till von Wachter, Diana Herrera, Roozbeh Moghadam, Swapnil Motghare, Kara Segal, Neethy Chengappa]
+  journal: California Policy Lab
+  year: 2026
+  links:
+    - label: Tracker
+      url: https://capolicylab.org/california-ai-unemployment-tracker/
+    - label: Report
+      url: https://capolicylab.org/wp-content/uploads/2026/06/Tracking-AI-Related-Job-Loss-Using-Unemployment-Insurance-Claims-Data-in-California.pdf
+  abstract: >-
+    The California Employment Development Department partnered with the
+    nonpartisan California Policy Lab at the University of California to conduct
+    research to measure AI-related job loss trends in California, using
+    Unemployment Insurance claims data, combined with AI exposure measures. The
+    California Policy Lab developed the California AI-Unemployment Tracker
+    (CAIT), which will be updated monthly.
+
+- title: Unemployment Insurance Claims After the LA Wildfires
+  status: policy
+  coauthors: [Paul Lapinski, Peter Mannino, Roozbeh Moghadam, Till von Wachter]
+  journal: California Policy Lab
+  year: 2025
+  links:
+    - label: Report
+      url: https://capolicylab.org/unemployment-insurance-claims-after-the-la-wildfires/
+  abstract: >-
+    The 2025 Palisades and Eaton wildfires in Los Angeles County destroyed over
+    13,000 homes and nearly 2,000 business establishments, displacing thousands
+    of residents and workers. This report shows the impact the fires had on
+    workers and local economies and highlights key insights for policymakers
+    responding to natural disasters. In the weeks following the fires,
+    6,300–8,700 more new regular Unemployment Insurance (UI) claims were filed
+    than would be expected without the fires, a 12–17% increase. An additional
+    5,000 workers filed claims through the federal Disaster Unemployment
+    Assistance Program.

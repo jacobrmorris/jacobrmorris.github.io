@@ -62,6 +62,16 @@
       {% include research.html %}
     </section>
 
+    {%- assign policy_reports = site.data.research | where: "status", "policy" -%}
+    {%- if policy_reports.size > 0 %}
+    <section id="policy" class="section" aria-labelledby="policy-title">
+      <h2 id="policy-title" class="section-title">Policy Reports</h2>
+      {%- for item in policy_reports %}
+      {% include paper.html paper=item level=3 %}
+      {%- endfor %}
+    </section>
+    {%- endif %}
+
     {%- if site.data.teaching.positions.size > 0 %}
     <section id="teaching" class="section" aria-labelledby="teaching-title">
       <h2 id="teaching-title" class="section-title">Teaching</h2>

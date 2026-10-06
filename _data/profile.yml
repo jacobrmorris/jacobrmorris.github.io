@@ -18,11 +18,16 @@ institution_short: UC San Diego
 institution_url: https://ucsd.edu
 department_url: https://economics.ucsd.edu
 
-# Shown under your name on the home page. Markdown is fine.
-bio: >-
+# Shown under "About" on the home page. Markdown is fine; leave a blank line
+# between paragraphs.
+bio: |
   My research is in labor and public economics, with a focus on how labor market
-  regulation shapes firms' employment decisions. I am also a Research Fellow at
-  the [California Policy Lab](https://www.capolicylab.org).
+  regulation shapes firms' employment decisions.
+
+  I am also a Graduate Research Fellow at the
+  [California Policy Lab](https://www.capolicylab.org), where I work with
+  administrative data from California's
+  [Employment Development Department](https://edd.ca.gov) (EDD).
 
 fields: [Labor Economics, Public Economics]
 
