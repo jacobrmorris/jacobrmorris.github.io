@@ -11,12 +11,13 @@
 {%- assign jmp = nil -%}
 {%- if job_market -%}{%- assign jmp = site.data.research | where: "jmp", true | first -%}{%- endif -%}
 {%- assign jmp_link = jmp.links | first -%}
+{%- assign asset_version = site.time | date: '%s' -%}
 
 <div class="wrap layout">
   <header id="contact" class="profile">
     <picture class="profile-photo">
-      <source srcset="{{ '/assets/img/headshot.webp' | relative_url }}" type="image/webp">
-      <img src="{{ profile.photo.src | relative_url }}" alt="{{ profile.photo.alt }}" width="266" height="333" fetchpriority="high">
+      <source srcset="{{ '/assets/img/headshot.webp' | relative_url }}?v={{ asset_version }}" type="image/webp">
+      <img src="{{ profile.photo.src | relative_url }}?v={{ asset_version }}" alt="{{ profile.photo.alt }}" width="720" height="900" fetchpriority="high">
     </picture>
     <h1>{{ profile.name }}</h1>
     <p class="profile-position">{{ profile.position }}<br>{{ profile.institution }}</p>
