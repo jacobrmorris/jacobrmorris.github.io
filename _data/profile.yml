@@ -48,7 +48,7 @@ photo:
 address:
   - Department of Economics
   - University of California San Diego
-  - 9500 Gilman Drive
+  - "9500 Gilman Drive #0508"   # quoted: an unquoted " #" would start a YAML comment
   - La Jolla, CA 92093
 
 # Profile links. Leave a value empty to hide it.
