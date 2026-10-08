@@ -21,12 +21,14 @@
     </picture>
     <h1>{{ profile.name }}</h1>
     <p class="profile-position">{{ profile.position }}<br>{{ profile.institution }}</p>
-    <ul class="profile-links">
+    <div class="profile-docs">
       {%- if jmp_link %}
-      <li><a href="{{ jmp_link.url | relative_url }}">Job Market Paper</a></li>
+      <a class="doc-button" href="{{ jmp_link.url | relative_url }}">{% include icon.html name="file-down" %}Job Market Paper</a>
       {%- endif %}
+      <a class="doc-button" href="{{ profile.cv | relative_url }}">{% include icon.html name="file-down" %}CV<span class="visually-hidden"> (PDF)</span></a>
+    </div>
+    <ul class="profile-links">
       <li>{% include email.html label="Email" %}</li>
-      <li><a href="{{ profile.cv | relative_url }}">CV<span class="visually-hidden"> (PDF)</span></a></li>
       {%- for link in profile.links %}
         {%- if link[1] and link[1] != "" %}
           {%- case link[0] -%}

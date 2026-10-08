@@ -32,10 +32,10 @@ research.html, teaching.html, cv.html   redirects that keep old links and /cv wo
 In `_data/profile.yml`, set `job_market.enabled: true` and check `season`. That switch:
 
 - adds an "On the 2027–2028 academic job market" badge above your bio;
-- pulls the paper marked `jmp: true` in `research.yml` to the top as **Job Market Paper**, with its abstract shown, and adds a **Job Market Paper** link above your email and CV in the left column;
+- pulls the paper marked `jmp: true` in `research.yml` to the top as **Job Market Paper**, with its abstract shown, and adds a **Job Market Paper** button beside the CV button in the left column;
 - shows the **References** section, using `_data/references.yml`.
 
-Before turning it on, make sure that the JMP entry has `jmp: true` and a `links` entry pointing to the PDF (the first link is what the title and the left-column link point to), that `references.yml` is filled in, and that the CV is current. Job-market mode also changes the page title and search description to say you're on the market.
+Before turning it on, make sure that the JMP entry has `jmp: true` and a `links` entry pointing to the PDF (the first link is what the title and the left-column button point to), that `references.yml` is filled in, and that the CV is current. Job-market mode also changes the page title and search description to say you're on the market.
 
 Two habits that most candidate sites miss:
 
