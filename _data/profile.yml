@@ -53,7 +53,7 @@ address:
 
 # Profile links. Leave a value empty to hide it.
 links:
-  google_scholar:
+  google_scholar: "https://scholar.google.com/citations?user=A4peXqIAAAAJ&hl=en"
   ssrn:
   orcid:
   linkedin:

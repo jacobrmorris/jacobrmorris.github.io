@@ -4,6 +4,7 @@ for (const link of document.querySelectorAll('a[data-email-user]')) {
   const address = `${link.dataset.emailUser}@${link.dataset.emailDomain}`;
   link.href = `mailto:${address}`;
   if (link.hasAttribute('data-email-show')) link.textContent = address;
+  else link.title = address; // links labelled e.g. "Email" show the address on hover
 }
 
 // "Abstract" toggles. Each button starts hidden, so without JavaScript every
