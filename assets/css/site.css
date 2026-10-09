@@ -478,6 +478,12 @@ main:focus {
   text-decoration: underline;
 }
 
+/* Stands in for the Abstract toggle when an abstract can't be posted yet. */
+.abstract-note {
+  color: var(--text-faint);
+  font-weight: 400;
+}
+
 /* Looks like the links beside it, plus a chevron that flips when open. */
 .abstract-toggle {
   display: inline-flex;

@@ -19,6 +19,8 @@
 #               They appear in one row before the "Abstract" toggle, and the
 #               first link is also where the title points.
 #   note        optional short status line, e.g. "Revise & resubmit, AER"
+#   abstract_note  optional text shown where the Abstract toggle would be, for a
+#               paper whose abstract can't be posted yet, e.g. "Abstract coming soon"
 #
 # To post a paper: put the PDF in /papers/ (e.g. papers/morris-jmp.pdf) and add
 #   links:
@@ -26,6 +28,11 @@
 #       url: /papers/morris-jmp.pdf
 # Keep the file name the same when you update a draft so links never break.
 # ─────────────────────────────────────────────────────────────────────────────
+
+- title: "Spell or Scar? Wildfire Damage and the Insurance of Job Loss"
+  status: progress
+  coauthors: [Anna Newman]
+  abstract_note: Abstract coming soon
 
 - title: Estimating the Cost of Advance Notice for Firms Conducting Mass Layoffs
   status: progress

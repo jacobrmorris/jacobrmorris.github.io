@@ -19,6 +19,8 @@
 {%- if paper.abstract or paper.figures -%}{%- assign has_panel = true -%}{%- endif -%}
 {%- assign show_toggle = false -%}
 {%- if has_panel -%}{%- unless include.featured -%}{%- assign show_toggle = true -%}{%- endunless -%}{%- endif -%}
+{%- assign show_abstract_note = false -%}
+{%- if paper.abstract_note and has_panel == false -%}{%- assign show_abstract_note = true -%}{%- endif -%}
 <article class="paper{% if include.featured %} paper--featured{% endif %}">
   <h{{ level }} class="paper-title">
     {%- if main_link -%}
@@ -51,13 +53,16 @@
   </p>
   {%- endif %}
 
-  {%- if paper.links or show_toggle %}
+  {%- if paper.links or show_toggle or show_abstract_note %}
   <ul class="paper-actions">
     {%- for link in paper.links %}
     <li><a href="{{ link.url | relative_url }}">{{ link.label }}</a></li>
     {%- endfor %}
     {%- if show_toggle %}
     <li><button type="button" class="abstract-toggle" aria-expanded="false" aria-controls="{{ panel_id }}" hidden>Abstract<span class="visually-hidden"> of “{{ paper.title }}”</span></button></li>
+    {%- endif %}
+    {%- if show_abstract_note %}
+    <li class="abstract-note">{{ paper.abstract_note }}</li>
     {%- endif %}
   </ul>
   {%- endif %}
