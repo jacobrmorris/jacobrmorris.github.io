@@ -32,7 +32,53 @@
 - title: "Spell or Scar? Wildfire Damage and the Insurance of Job Loss"
   status: progress
   coauthors: [Anna Newman]
-  abstract_note: Abstract coming soon
+  abstract: >-
+    Wildfires destroyed more than 70,000 structures in California between 2013
+    and 2025, devastating communities and displacing thousands of workers. We
+    study what happens to workers when a wildfire damages their workplace, and
+    how much of their loss unemployment insurance replaces. We link CAL FIRE’s
+    structure-level damage inspections to California’s confidential
+    administrative records of earnings, employment, unemployment insurance
+    claims, and benefit payments from 2000 to 2025. Exploiting the unpredictable
+    timing of fire damage, we compare workers at establishments at or near
+    damaged structures, before and after the fire, with matched workers at
+    establishments untouched by fire. We find that damage near the workplace
+    causes large and persistent earnings losses: four to five years after a
+    fire, the quarterly earnings of workers at damaged establishments remain
+    lower by about a fifth of their pre-fire level, for a cumulative loss of
+    about $52,000 per worker over five years. By then, these workers are almost
+    20 percentage points less likely to work for their pre-fire employer and
+    nearly 10 points less likely to hold any covered job in California. We show
+    that unemployment insurance responds quickly but briefly: claims spike in
+    the quarter of the fire, but nearly all benefits are paid within a few
+    quarters, such that they replace 13 percent of first-year losses and only 2
+    percent of five-year losses.
+  figures:
+    - src: /assets/figures/fire-earnings-losses.webp
+      width: 2405
+      height: 1184
+      alt: >-
+        Line chart of the effect of workplace fire damage on quarterly earnings,
+        from 12 quarters before to 20 quarters after the fire. Estimates are
+        near zero before the fire, drop
+        to about $1,400 below zero in the quarter of the fire, and stay between
+        roughly $2,000 and $3,500 below zero through quarter 20.
+      caption: >-
+        Effect of fire damage near the workplace on quarterly earnings, relative
+        to matched workers at undamaged establishments.
+    - src: /assets/figures/fire-ui-replacement.webp
+      width: 2405
+      height: 1184
+      alt: >-
+        Line chart comparing the effect of fire damage on earnings with its
+        effect on earnings plus unemployment insurance benefits, by quarter
+        relative to the fire. The two lines separate only in the first few
+        quarters after the fire, where a small shaded area marks the part of the
+        loss replaced by benefits; afterwards they coincide at losses of $2,000
+        to $3,500 per quarter.
+      caption: >-
+        Earnings losses with and without unemployment insurance benefits. The
+        shaded area is the part of the loss replaced by benefits.
 
 - title: Estimating the Cost of Advance Notice for Firms Conducting Mass Layoffs
   status: progress
