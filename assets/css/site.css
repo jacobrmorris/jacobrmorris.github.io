@@ -273,7 +273,7 @@ main {
 
 .intro {
   display: grid;
-  grid-template-columns: 15rem minmax(0, 1fr);
+  grid-template-columns: 13rem minmax(0, 1fr);
   gap: 2.25rem;
   align-items: start;
   margin-top: 2.5rem;
