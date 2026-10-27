@@ -78,7 +78,7 @@
           <img src="{{ figure.src | relative_url }}" alt="{{ figure.alt | strip }}"{% if figure.width %} width="{{ figure.width }}" height="{{ figure.height }}"{% endif %} loading="lazy" decoding="async">
         </a>
         {%- if figure.caption %}
-        <figcaption>{{ figure.caption | strip }}</figcaption>
+        <figcaption><span class="fig-label">Fig. {{ forloop.index }}</span>{{ figure.caption | strip }}</figcaption>
         {%- endif %}
       </figure>
       {%- endfor %}

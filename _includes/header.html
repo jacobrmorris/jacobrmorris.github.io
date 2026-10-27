@@ -1,11 +1,19 @@
 {%- comment -%}
-  Only pages other than the home page get a header (a link back home); on the
-  home page the profile column plays that role.
+  Top bar on every page: name on the left, section links and the CV on the
+  right. On other pages (404) the section links point back to the home page.
 {%- endcomment -%}
-{%- unless page.url == "/" %}
-<header class="site-header">
-  <div class="wrap">
+{%- assign home = '/' | relative_url -%}
+{%- if page.url == "/" -%}{%- assign home = "" -%}{%- endif -%}
+{%- assign policy_reports = site.data.research | where: "status", "policy" %}
+<header class="topbar">
+  <div class="topbar-inner">
     <a class="wordmark" href="{{ '/' | relative_url }}">{{ site.data.profile.name }}</a>
+    <nav class="tabs" aria-label="Sections">
+      <a href="{{ home }}#research">Research</a>
+      {%- if policy_reports.size > 0 %}
+      <a href="{{ home }}#policy">Policy</a>
+      {%- endif %}
+      <a href="{{ site.data.profile.cv | relative_url }}">CV</a>
+    </nav>
   </div>
 </header>
-{%- endunless %}

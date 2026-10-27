@@ -1,10 +1,10 @@
 ---
 ---
 {%- comment -%}
-  The whole site is this one page: a profile column (photo, name, contact)
-  beside the main column (bio, research, references). Content comes from
-  _data/: profile.yml, research.yml, coauthors.yml, references.yml and the
-  optional teaching.yml.
+  The whole site is this one page, in a single column: name, photo and bio,
+  contact links, then research, policy reports and references. Content comes
+  from _data/: profile.yml, research.yml, coauthors.yml, references.yml and
+  the optional teaching.yml.
 {%- endcomment -%}
 {%- assign profile = site.data.profile -%}
 {%- assign job_market = profile.job_market.enabled -%}
@@ -13,80 +13,83 @@
 {%- assign jmp_link = jmp.links | first -%}
 {%- assign asset_version = site.time | date: '%s' -%}
 
-<div class="wrap layout">
-  <header id="contact" class="profile">
-    <picture class="profile-photo">
+<div class="wrap">
+  <header id="contact" class="hero">
+    <p class="eyebrow">{{ profile.position | replace: " in ", " · " }} · {{ profile.institution_short }}</p>
+    <h1 class="name">{{ profile.name }}</h1>
+    <p class="fields">{{ profile.fields | join: " · " }}</p>
+  </header>
+
+  <section id="about" class="intro" aria-label="About">
+    <picture class="portrait">
       <source srcset="{{ '/assets/img/headshot.webp' | relative_url }}?v={{ asset_version }}" type="image/webp">
       <img src="{{ profile.photo.src | relative_url }}?v={{ asset_version }}" alt="{{ profile.photo.alt }}" width="720" height="900" fetchpriority="high">
     </picture>
-    <h1>{{ profile.name }}</h1>
-    <p class="profile-position">{{ profile.position }}<br>{{ profile.institution }}</p>
-    <div class="profile-docs">
-      {%- if jmp_link %}
-      <a class="doc-button" href="{{ jmp_link.url | relative_url }}">{% include icon.html name="file-down" %}Job Market Paper</a>
-      {%- endif %}
-      <a class="doc-button" href="{{ profile.cv | relative_url }}">{% include icon.html name="file-down" %}CV<span class="visually-hidden"> (PDF)</span></a>
-    </div>
-    <ul class="profile-links">
-      <li>{% include email.html label="Email" %}</li>
-      {%- for link in profile.links %}
-        {%- if link[1] and link[1] != "" %}
-          {%- case link[0] -%}
-            {%- when "google_scholar" -%}{%- assign link_label = "Google Scholar" -%}
-            {%- when "ssrn" -%}{%- assign link_label = "SSRN" -%}
-            {%- when "orcid" -%}{%- assign link_label = "ORCID" -%}
-            {%- when "linkedin" -%}{%- assign link_label = "LinkedIn" -%}
-            {%- when "github" -%}{%- assign link_label = "GitHub" -%}
-            {%- when "bluesky" -%}{%- assign link_label = "Bluesky" -%}
-            {%- when "x" -%}{%- assign link_label = "X" -%}
-            {%- else -%}{%- assign link_label = link[0] | replace: "_", " " | capitalize -%}
-          {%- endcase %}
-      <li><a href="{{ link[1] }}">{{ link_label }}</a></li>
-        {%- endif -%}
-      {%- endfor %}
-    </ul>
-    <address class="profile-address">{{ profile.address | join: "<br>" }}</address>
-  </header>
-
-  <div class="main-column">
-    <section id="about" class="about" aria-labelledby="about-title">
-      <h2 id="about-title" class="section-title">About</h2>
-      {%- if job_market %}
-      <p class="job-market">On the {{ profile.job_market.season }} academic job market</p>
-      {%- endif %}
+    <div class="bio">
       {{ profile.bio | markdownify }}
-      {%- if job_market and profile.job_market.note %}
-      <p>{{ profile.job_market.note }}</p>
-      {%- endif %}
-    </section>
+    </div>
+  </section>
 
-    <section id="research" class="section" aria-labelledby="research-title">
-      <h2 id="research-title" class="section-title">Research</h2>
-      {% include research.html %}
-    </section>
-
-    {%- assign policy_reports = site.data.research | where: "status", "policy" -%}
-    {%- if policy_reports.size > 0 %}
-    <section id="policy" class="section" aria-labelledby="policy-title">
-      <h2 id="policy-title" class="section-title">Policy Reports</h2>
-      {%- for item in policy_reports %}
-      {% include paper.html paper=item level=3 %}
-      {%- endfor %}
-    </section>
+  {%- if job_market %}
+  <div class="job-market">
+    <p class="job-market-headline">I am on the {{ profile.job_market.season }} academic job market.</p>
+    {%- if jmp %}
+    <p class="job-market-paper">Job market paper:
+      {% if jmp_link %}<a href="{{ jmp_link.url | relative_url }}">{{ jmp.title }}</a>{% else %}{{ jmp.title }}{% endif %}</p>
     {%- endif %}
-
-    {%- if site.data.teaching.positions.size > 0 %}
-    <section id="teaching" class="section" aria-labelledby="teaching-title">
-      <h2 id="teaching-title" class="section-title">Teaching</h2>
-      {% include teaching.html %}
-    </section>
-    {%- endif %}
-
-    {%- if job_market and site.data.references.size > 0 %}
-    <section id="references" class="section" aria-labelledby="references-title">
-      <h2 id="references-title" class="section-title">References</h2>
-      {% include references.html %}
-    </section>
+    {%- if profile.job_market.note %}
+    <p class="job-market-paper">{{ profile.job_market.note }}</p>
     {%- endif %}
   </div>
+  {%- endif %}
+
+  <ul class="chips">
+    {%- capture email_label %}{% include icon.html name="mail" %}Email{% endcapture %}
+    <li>{% include email.html class="chip" label=email_label %}</li>
+    <li><a class="chip" href="{{ profile.cv | relative_url }}">{% include icon.html name="file-text" %}CV<span class="visually-hidden"> (PDF)</span></a></li>
+    {%- for link in profile.links %}
+      {%- if link[1] and link[1] != "" %}
+        {%- case link[0] -%}
+          {%- when "google_scholar" -%}{%- assign link_label = "Google Scholar" -%}{%- assign link_icon = "graduation-cap" -%}
+          {%- when "ssrn" -%}{%- assign link_label = "SSRN" -%}{%- assign link_icon = "link" -%}
+          {%- when "orcid" -%}{%- assign link_label = "ORCID" -%}{%- assign link_icon = "link" -%}
+          {%- when "linkedin" -%}{%- assign link_label = "LinkedIn" -%}{%- assign link_icon = "link" -%}
+          {%- when "github" -%}{%- assign link_label = "GitHub" -%}{%- assign link_icon = "link" -%}
+          {%- when "bluesky" -%}{%- assign link_label = "Bluesky" -%}{%- assign link_icon = "link" -%}
+          {%- when "x" -%}{%- assign link_label = "X" -%}{%- assign link_icon = "link" -%}
+          {%- else -%}{%- assign link_label = link[0] | replace: "_", " " | capitalize -%}{%- assign link_icon = "link" -%}
+        {%- endcase %}
+    <li><a class="chip" href="{{ link[1] }}">{% include icon.html name=link_icon %}{{ link_label }}</a></li>
+      {%- endif -%}
+    {%- endfor %}
+  </ul>
+
+  <section id="research" class="section" aria-labelledby="research-title">
+    <h2 id="research-title" class="section-title">Research</h2>
+    {% include research.html %}
+  </section>
+
+  {%- assign policy_reports = site.data.research | where: "status", "policy" -%}
+  {%- if policy_reports.size > 0 %}
+  <section id="policy" class="section" aria-labelledby="policy-title">
+    <h2 id="policy-title" class="section-title">Policy Reports</h2>
+    {%- for item in policy_reports %}
+    {% include paper.html paper=item level=3 %}
+    {%- endfor %}
+  </section>
+  {%- endif %}
+
+  {%- if site.data.teaching.positions.size > 0 %}
+  <section id="teaching" class="section" aria-labelledby="teaching-title">
+    <h2 id="teaching-title" class="section-title">Teaching</h2>
+    {% include teaching.html %}
+  </section>
+  {%- endif %}
+
+  {%- if job_market and site.data.references.size > 0 %}
+  <section id="references" class="section" aria-labelledby="references-title">
+    <h2 id="references-title" class="section-title">References</h2>
+    {% include references.html %}
+  </section>
+  {%- endif %}
 </div>

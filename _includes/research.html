@@ -1,31 +1,19 @@
 {%- comment -%}
-  Academic research, grouped by status (policy reports have their own section
-  in index.html). In job-market mode the paper marked
-  `jmp: true` is pulled out and shown first as "Job Market Paper".
-  With only one group (e.g. a single work in progress), the group heading is
-  dropped and the status moves into each paper's meta line instead.
+  Academic research, grouped by status under small labels (policy reports
+  have their own section in index.html). In job-market mode the paper marked
+  `jmp: true` is pulled out and shown first, in its own box, as
+  "Job Market Paper".
 {%- endcomment -%}
 {%- assign papers = site.data.research -%}
 {%- assign jmp = nil -%}
 {%- if site.data.profile.job_market.enabled -%}
   {%- assign jmp = papers | where: "jmp", true | first -%}
 {%- endif -%}
-{%- assign groups = "published|Publications|Published,working|Working Papers|Working paper,progress|Work in Progress|Work in progress" | split: "," -%}
-
-{%- assign group_count = 0 -%}
-{%- if jmp -%}{%- assign group_count = 1 -%}{%- endif -%}
-{%- for group in groups -%}
-  {%- assign group_parts = group | split: "|" -%}
-  {%- assign group_papers = papers | where: "status", group_parts[0] -%}
-  {%- if jmp -%}
-    {%- assign group_papers = group_papers | where_exp: "item", "item.jmp != true" -%}
-  {%- endif -%}
-  {%- if group_papers.size > 0 -%}{%- assign group_count = group_count | plus: 1 -%}{%- endif -%}
-{%- endfor -%}
+{%- assign groups = "published|Publications,working|Working Papers,progress|Work in Progress" | split: "," -%}
 
 {%- if jmp %}
-<div class="paper-group">
-  <h3 class="label">Job Market Paper</h3>
+<div class="paper-group paper-group--jmp">
+  <h3 class="jmp-label">Job Market Paper</h3>
   {% include paper.html paper=jmp featured=true %}
 </div>
 {%- endif %}
@@ -37,18 +25,10 @@
     {%- assign group_papers = group_papers | where_exp: "item", "item.jmp != true" -%}
   {%- endif -%}
   {%- if group_papers.size > 0 %}
-  {%- assign group_label = group_parts[1] -%}
-  {%- assign group_status = group_parts[2] -%}
 <div class="paper-group">
-  {%- if group_count > 1 %}
-  <h3 class="label">{{ group_label }}</h3>
-  {%- endif %}
+  <h3 class="label">{{ group_parts[1] }}</h3>
   {%- for item in group_papers %}
-  {%- if group_count > 1 %}
   {% include paper.html paper=item %}
-  {%- else %}
-  {% include paper.html paper=item status=group_status level=3 %}
-  {%- endif %}
   {%- endfor %}
 </div>
   {%- endif -%}
