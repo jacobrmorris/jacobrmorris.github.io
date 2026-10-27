@@ -6,13 +6,10 @@
   Parameters:
     paper     — an entry from _data/research.yml
     featured  — true for the job market paper (larger title, abstract shown)
-    status    — optional status text for the meta line (used when the
-                research list has a single group and no group headings)
-    level     — heading level for the title: 4 under a group heading
-                (default), 3 when there is none
+    level     — heading level for the title (default 3)
 {%- endcomment -%}
 {%- assign paper = include.paper -%}
-{%- assign level = include.level | default: 4 -%}
+{%- assign level = include.level | default: 3 -%}
 {%- assign main_link = paper.links | first -%}
 {%- assign panel_id = paper.title | slugify | prepend: "abstract-" -%}
 {%- assign has_panel = false -%}
@@ -30,7 +27,7 @@
     {%- endif -%}
   </h{{ level }}>
 
-  {%- if paper.coauthors or paper.journal or paper.note or include.status %}
+  {%- if paper.coauthors or paper.journal or paper.note %}
   <p class="paper-meta">
     {%- if paper.coauthors -%}
       <span>with
@@ -43,9 +40,6 @@
     {%- endif -%}
     {%- if paper.journal -%}
       <span><cite>{{ paper.journal }}</cite>{% if paper.year %}, {{ paper.year }}{% endif %}</span>
-    {%- endif -%}
-    {%- if include.status -%}
-      <span>{{ include.status }}</span>
     {%- endif -%}
     {%- if paper.note -%}
       <span>{{ paper.note }}</span>

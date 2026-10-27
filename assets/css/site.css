@@ -239,7 +239,8 @@ main:focus {
   letter-spacing: 0.06em;
 }
 
-.tabs a:hover {
+.tabs a:hover,
+.tabs a[aria-current="page"] {
   border-bottom-color: var(--accent);
   color: var(--text);
   text-decoration: none;
@@ -380,6 +381,13 @@ main {
   line-height: 1.4;
 }
 
+/* Title of a page other than home (Research). */
+.page-title {
+  margin-bottom: 2.75rem;
+  font-size: clamp(2.25rem, 1.8rem + 2vw, 2.75rem);
+  letter-spacing: -0.015em;
+}
+
 /* 6. Research ------------------------------------------------------------- */
 
 .paper-group + .paper-group {
@@ -402,7 +410,6 @@ main {
   border-top: 0;
 }
 
-.section > .paper:last-child,
 .paper-group > .paper:last-child {
   padding-bottom: 0;
 }

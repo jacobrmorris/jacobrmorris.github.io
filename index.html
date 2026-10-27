@@ -1,9 +1,9 @@
 ---
 ---
 {%- comment -%}
-  The whole site is this one page, in a single column: name, photo and bio,
-  contact links, then research, policy reports and references. Content comes
-  from _data/: profile.yml, research.yml, coauthors.yml, references.yml and
+  Home page: name, photo and bio, and contact links (plus the job market
+  paper and references in job-market mode). Papers are on /research/.
+  Content comes from _data/: profile.yml, research.yml, references.yml and
   the optional teaching.yml.
 {%- endcomment -%}
 {%- assign profile = site.data.profile -%}
@@ -35,7 +35,7 @@
     <p class="job-market-headline">I am on the {{ profile.job_market.season }} academic job market.</p>
     {%- if jmp %}
     <p class="job-market-paper">Job market paper:
-      {% if jmp_link %}<a href="{{ jmp_link.url | relative_url }}">{{ jmp.title }}</a>{% else %}{{ jmp.title }}{% endif %}</p>
+      <a href="{% if jmp_link %}{{ jmp_link.url | relative_url }}{% else %}{{ '/research/' | relative_url }}{% endif %}">{{ jmp.title }}</a></p>
     {%- endif %}
     {%- if profile.job_market.note %}
     <p class="job-market-paper">{{ profile.job_market.note }}</p>
@@ -63,21 +63,6 @@
       {%- endif -%}
     {%- endfor %}
   </ul>
-
-  <section id="research" class="section" aria-labelledby="research-title">
-    <h2 id="research-title" class="section-title">Research</h2>
-    {% include research.html %}
-  </section>
-
-  {%- assign policy_reports = site.data.research | where: "status", "policy" -%}
-  {%- if policy_reports.size > 0 %}
-  <section id="policy" class="section" aria-labelledby="policy-title">
-    <h2 id="policy-title" class="section-title">Policy Reports</h2>
-    {%- for item in policy_reports %}
-    {% include paper.html paper=item level=3 %}
-    {%- endfor %}
-  </section>
-  {%- endif %}
 
   {%- if site.data.teaching.positions.size > 0 %}
   <section id="teaching" class="section" aria-labelledby="teaching-title">

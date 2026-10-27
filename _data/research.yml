@@ -8,7 +8,7 @@
 #                 published → "Publications"   (also set `journal` and `year`)
 #                 working   → "Working Papers"
 #                 progress  → "Work in Progress"
-#                 policy    → its own "Policy Reports" section, after Research
+#                 policy    → "Policy Reports", last on the Research page
 #   jmp         true marks your job market paper. While job-market mode is on
 #               (_data/profile.yml), it is shown first as "Job Market Paper",
 #               with its abstract and figures open.

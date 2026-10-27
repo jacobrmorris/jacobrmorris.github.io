@@ -22,20 +22,21 @@ _includes/      page sections: head, header, paper, research, teaching, …
 _layouts/       the page shell
 _figures/       vector originals of figures (not published)
 assets/         css, js, fonts, images and web-ready figures
-index.html      the home page (the whole site): profile column + research column
+index.html      the home page: name, photo, bio and contact links
+research.html   the Research page (/research/): papers and policy reports
 404.html        "page not found"
-research.html, teaching.html, cv.html   redirects that keep old links and /cv working
+teaching.html, cv.html   redirects that keep old links and /cv working
 ```
 
 ## Job-market mode
 
 In `_data/profile.yml`, set `job_market.enabled: true` and check `season`. That switch:
 
-- adds an "On the 2027–2028 academic job market" badge above your bio;
-- pulls the paper marked `jmp: true` in `research.yml` to the top as **Job Market Paper**, with its abstract shown, and adds a **Job Market Paper** button beside the CV button in the left column;
-- shows the **References** section, using `_data/references.yml`.
+- adds "I am on the 2027–2028 academic job market" under your bio on the home page, with a link to the job market paper;
+- pulls the paper marked `jmp: true` in `research.yml` to the top of the Research page as **Job Market Paper**, in its own box with its abstract shown;
+- shows the **References** section on the home page, using `_data/references.yml`.
 
-Before turning it on, make sure that the JMP entry has `jmp: true` and a `links` entry pointing to the PDF (the first link is what the title and the left-column button point to), that `references.yml` is filled in, and that the CV is current. Job-market mode also changes the page title and search description to say you're on the market.
+Before turning it on, make sure that the JMP entry has `jmp: true` and a `links` entry pointing to the PDF (the first link is what the title and the home-page link point to), that `references.yml` is filled in, and that the CV is current. Job-market mode also changes the page title and search description to say you're on the market.
 
 Two habits that most candidate sites miss:
 
