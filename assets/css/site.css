@@ -20,6 +20,14 @@
   font-display: swap;
 }
 
+@font-face {
+  font-family: "Newsreader";
+  src: url("../fonts/newsreader-latin-italic.woff2") format("woff2");
+  font-weight: 400 600;
+  font-style: italic;
+  font-display: swap;
+}
+
 /* Georgia resized to Newsreader's proportions, so text doesn't shift when
    the web font finishes loading. */
 @font-face {
@@ -461,10 +469,6 @@ main {
 
 .paper-meta a:hover {
   color: var(--accent);
-}
-
-.paper-meta cite {
-  font-style: normal;
 }
 
 /* Links and the Abstract toggle, as small capitals. */

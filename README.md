@@ -99,4 +99,4 @@ Commit and push to `master`. You can follow the build under the repository's **A
 
 ## Credits
 
-Headings are set in [Newsreader](https://github.com/productiontype/Newsreader) (SIL Open Font License, `assets/fonts/OFL.txt`), and the icons come from [Lucide](https://lucide.dev) (ISC License).
+Text is set in [Newsreader](https://github.com/productiontype/Newsreader) (SIL Open Font License, `assets/fonts/OFL.txt`), and the icons come from [Lucide](https://lucide.dev) (ISC License).
