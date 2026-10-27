@@ -43,9 +43,8 @@
   {%- endif %}
 
   <ul class="chips">
-    {%- capture email_label %}{% include icon.html name="mail" %}Email{% endcapture %}
-    <li>{% include email.html class="chip" label=email_label %}</li>
-    <li><a class="chip" href="{{ profile.cv | relative_url }}">{% include icon.html name="file-text" %}CV<span class="visually-hidden"> (PDF)</span></a></li>
+    <li>{% include email.html class="chip" icon="mail" %}</li>
+    <li><a class="chip" href="{{ profile.cv | relative_url }}">{% include icon.html name="file-text" %}Curriculum Vitae<span class="visually-hidden"> (PDF)</span></a></li>
     {%- for link in profile.links %}
       {%- if link[1] and link[1] != "" %}
         {%- case link[0] -%}
