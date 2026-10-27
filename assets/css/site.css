@@ -260,15 +260,15 @@ main {
 }
 
 .name {
-  font-size: clamp(2.75rem, 1.9rem + 4vw, 4rem);
-  line-height: 1.02;
+  font-size: clamp(2.25rem, 1.9rem + 1.6vw, 2.75rem);
+  line-height: 1.1;
   letter-spacing: -0.015em;
 }
 
-.fields {
-  margin-top: 0.625rem;
+.position {
+  margin-top: 0.5rem;
   color: var(--text-muted);
-  font-size: 1.25rem;
+  font-size: 1.1875rem;
 }
 
 .intro {

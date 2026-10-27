@@ -15,9 +15,8 @@
 
 <div class="wrap">
   <header id="contact" class="hero">
-    <p class="eyebrow">{{ profile.position | replace: " in ", " · " }} · {{ profile.institution_short }}</p>
     <h1 class="name">{{ profile.name }}</h1>
-    <p class="fields">{{ profile.fields | join: " · " }}</p>
+    <p class="position">{{ profile.position }}, {{ profile.institution }}</p>
   </header>
 
   <section id="about" class="intro" aria-label="About">
