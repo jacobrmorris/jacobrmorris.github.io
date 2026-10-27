@@ -273,8 +273,8 @@ main {
 
 .intro {
   display: grid;
-  grid-template-columns: 10.5rem minmax(0, 1fr);
-  gap: 2rem;
+  grid-template-columns: 15rem minmax(0, 1fr);
+  gap: 2.25rem;
   align-items: start;
   margin-top: 2.5rem;
 }
@@ -296,14 +296,16 @@ main {
   margin-top: -0.3em;
 }
 
-@media (max-width: 36rem) {
+/* Below this width the bio beside the photo would get too narrow, so the
+   photo moves above it. */
+@media (max-width: 44rem) {
   .intro {
     grid-template-columns: minmax(0, 1fr);
     gap: 1.5rem;
   }
 
   .portrait {
-    width: 8.5rem;
+    width: 11rem;
   }
 
   .bio p:first-child {
@@ -528,16 +530,18 @@ main {
   margin-top: 0.75em;
 }
 
-/* Figures stack full width, each on a light plate with its caption. */
+/* Figures sit side by side (stacked on phones), each on a light plate with
+   its caption. */
 .figures {
   display: grid;
-  gap: 1.25rem;
+  grid-template-columns: repeat(auto-fit, minmax(15rem, 1fr));
+  gap: 1rem;
   margin-top: 1.5rem;
 }
 
 .figures figure {
   margin: 0;
-  padding: 1rem 1rem 0.875rem;
+  padding: 0.75rem 0.75rem 0.625rem;
   border: 1px solid var(--figure-edge);
   border-radius: var(--radius);
   background: var(--figure-ground);
