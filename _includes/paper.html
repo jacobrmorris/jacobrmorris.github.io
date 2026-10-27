@@ -11,6 +11,8 @@
 {%- assign paper = include.paper -%}
 {%- assign level = include.level | default: 3 -%}
 {%- assign main_link = paper.links | first -%}
+{%- comment -%}Policy report titles stay plain; their links sit in the actions row.{%- endcomment -%}
+{%- if paper.status == "policy" -%}{%- assign main_link = nil -%}{%- endif -%}
 {%- assign panel_id = paper.title | slugify | prepend: "abstract-" -%}
 {%- assign has_panel = false -%}
 {%- if paper.abstract or paper.figures -%}{%- assign has_panel = true -%}{%- endif -%}

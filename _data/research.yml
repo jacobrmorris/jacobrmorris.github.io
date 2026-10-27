@@ -17,7 +17,8 @@
 #   figures     optional list of { src, alt, caption } shown with the abstract
 #   links       optional list of { label, url }, e.g. Paper (PDF), Slides, SSRN.
 #               They appear in one row before the "Abstract" toggle, and the
-#               first link is also where the title points.
+#               first link is also where the title points (policy report
+#               titles aren't links).
 #   note        optional short status line, e.g. "Revise & resubmit, AER"
 #   abstract_note  optional text shown where the Abstract toggle would be, for a
 #               paper whose abstract can't be posted yet, e.g. "Abstract coming soon"
