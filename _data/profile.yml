@@ -41,8 +41,11 @@ email:
 
 cv: /JacobMorris_cv.pdf
 
+# Keep the photo's address fixed so Google Images can index it. To change the
+# photo, save it under a new name (e.g. jacob-morris-2027.jpg, plus a .webp
+# copy) and update src, rather than overwriting this file.
 photo:
-  src: /assets/img/headshot.jpg
+  src: /assets/img/jacob-morris.jpg
   alt: Portrait of Jacob R. Morris
 
 address:
