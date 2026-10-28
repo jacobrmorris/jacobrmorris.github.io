@@ -9,10 +9,11 @@ for (const link of document.querySelectorAll('a[data-email-user]')) {
   else link.title = address; // links labelled e.g. "Email" show the address on hover
 }
 
-// "Abstract" toggles. Each button starts hidden, so without JavaScript every
-// abstract is simply shown. Collapsed abstracts use hidden="until-found", which
-// lets the browser's find-in-page search them and open them on a match.
-for (const button of document.querySelectorAll('.abstract-toggle')) {
+// "Abstract" and "Coverage" toggles. Each button starts hidden, so without
+// JavaScript every panel is simply shown. Collapsed panels use
+// hidden="until-found", which lets the browser's find-in-page search them and
+// open them on a match.
+for (const button of document.querySelectorAll('.panel-toggle')) {
   const panel = document.getElementById(button.getAttribute('aria-controls'));
   if (!panel) continue;
   const setOpen = (open) => {
