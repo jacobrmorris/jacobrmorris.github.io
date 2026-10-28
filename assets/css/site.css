@@ -428,15 +428,14 @@ main {
   border-bottom: 1px solid var(--rule);
 }
 
-/* Each paper sits between hairlines; the one right under a group label
-   already has the label's rule above it. */
+/* Papers are separated by space alone, so the line under a group label is
+   the only rule on the page. */
 .paper {
   padding-block: 1.75rem;
-  border-top: 1px solid var(--rule);
 }
 
-.label + .paper {
-  border-top: 0;
+.paper + .paper {
+  padding-top: 1.25rem;
 }
 
 .paper-group > .paper:last-child {
