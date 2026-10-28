@@ -1,0 +1,6 @@
+# Read only by Cloudflare Pages; Jekyll skips files that start with "_", so
+# GitHub Pages never publishes this. A Cloudflare Pages project also deploys
+# this repo, unbuilt, at jacobrmorris-github-io.pages.dev. Search engines had
+# indexed that copy instead of the real site, so send every request there to
+# the same page on jacobrmorris.com.
+/* https://jacobrmorris.com/:splat 301
