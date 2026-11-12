@@ -15,13 +15,15 @@ name: Jacob R. Morris
 position: PhD Student in Economics
 institution: University of California San Diego
 institution_short: UC San Diego
+institution_abbr: UCSD
 institution_url: https://ucsd.edu
 department_url: https://economics.ucsd.edu
 
 # Shown under "About" on the home page. Markdown is fine; leave a blank line
 # between paragraphs.
 bio: |
-  I am a PhD student in Economics at the University of California San Diego.
+  I am a PhD student in Economics at the University of California San Diego
+  (UCSD).
 
   My research is in labor and public economics, with a focus on job loss and
   policies meant to protect displaced workers.

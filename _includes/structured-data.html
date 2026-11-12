@@ -8,6 +8,7 @@
 {%- for link in profile.links -%}
   {%- if link[1] and link[1] != "" -%}{%- assign same_as = same_as | push: link[1] -%}{%- endif -%}
 {%- endfor -%}
+{%- assign institution_names = "" | split: "" | push: profile.institution_short | push: profile.institution_abbr -%}
 {%- capture short_name -%}{{ profile.name | split: " " | first }} {{ profile.name | split: " " | last }}{%- endcapture -%}
 <script type="application/ld+json">
   {
@@ -32,6 +33,7 @@
           "affiliation": {
             "@type": "CollegeOrUniversity",
             "name": {{ profile.institution | jsonify }},
+            "alternateName": {{ institution_names | jsonify }},
             "url": {{ profile.institution_url | jsonify }}
           },
           "knowsAbout": {{ profile.fields | jsonify }}{% if same_as.size > 0 %},
